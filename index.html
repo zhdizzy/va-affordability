@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG7N8F337G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HG7N8F337G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much House Can I Afford With a VA Loan? Affordability Calculator (2026) | The Better Veteran</title>
+<meta name="description" content="Free VA loan affordability calculator: see what a lender will approve you for vs. what you can comfortably afford. Models VA residual income, the tax-free disability gross-up, DTI, funding fee waiver, and your state's veteran property tax exemption.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tools.thebetterveteran.com/va-affordability/">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:title" content="The VA Will Approve You For More House Than You Should Buy. Here's Your Real Number.">
+<meta property="og:description" content="Two numbers, side by side: what a lender approves and what you can actually live with. Built on VA residual income tables and the tax-free disability gross-up nobody explains.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.thebetterveteran.com/va-affordability/">
+
+<script>
+  // Capture arrival params BEFORE loadFromUrl's history.replaceState strips
+  // them — the tour must never auto-run for share-link arrivals.
+  window.__vaAffArrivalHadParams = new URLSearchParams(location.search).toString().length > 0;
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VA Loan Affordability Calculator — Approved vs. Comfortable",
+    "url": "https://tools.thebetterveteran.com/va-affordability/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free interactive calculator that solves how much home a veteran can buy with a VA loan two ways: the lender's ceiling (41% debt-to-income on grossed-up qualifying income, the VA residual income table by region and family size, and county loan limits for partial entitlement) and a comfortable ceiling based on a share of actual income. Models the tax-free VA disability gross-up lenders apply to DTI but not to residual income, the 14 cents per square foot maintenance deduction, the funding fee waiver for rated veterans, state veteran property tax exemptions, and a life-stage readiness check with a net-worth exposure gauge.",
+    "publisher": { "@type": "Organization", "name": "The Better Veteran", "url": "https://www.thebetterveteran.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        { "@type": "Question", "name": "How much house can I afford with a VA loan?", "acceptedAnswer": { "@type": "Answer", "text": "A lender will typically approve a VA loan when your total monthly debts including the new housing payment stay at or under 41% of qualifying income AND you clear the VA's residual income requirement, a minimum dollar amount left over each month after taxes, debts, housing, and a maintenance estimate of 14 cents per square foot. Both tests must pass. The approved number is usually well above what feels comfortable, so this calculator shows both: the lender's ceiling and a comfortable ceiling based on a share of your actual take-home income." } },
+        { "@type": "Question", "name": "Does VA disability count as income for a mortgage?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. VA disability compensation counts as effective income and, per the VA Lender's Handbook, does not need to be documented for likelihood of continuance the way wages do. Because it is tax-free, most lenders also gross it up, typically by 15% to 25%, when calculating your debt-to-income ratio. The VA sets no gross-up percentage; it is a lender convention. Residual income, however, is always calculated on actual cash, never grossed up." } },
+        { "@type": "Question", "name": "What is VA residual income?", "acceptedAnswer": { "@type": "Answer", "text": "Residual income is the money left each month after federal and state taxes, Social Security, all debt payments, the full housing payment, and a maintenance-and-utilities estimate of 14 cents per square foot of living area. The VA publishes minimums by region (Northeast, Midwest, South, West), family size, and loan amount. For a family of four with a loan of $80,000 or more, the requirement is $1,025 in the Northeast, $1,003 in the Midwest and South, and $1,117 in the West. It is the reason a VA loan approves some borrowers a conventional loan would not, and the reason a bigger house can fail even when the DTI passes." } },
+        { "@type": "Question", "name": "Can I get a VA loan with a DTI over 41%?", "acceptedAnswer": { "@type": "Answer", "text": "Often, yes. The 41% figure is a guideline, not a hard cap. The VA Lender's Handbook says a ratio over 41% requires close scrutiny unless residual income exceeds the requirement by at least 20%, or the ratio is high solely because of tax-free income such as VA disability compensation, in which case the loan can be approved with a supervisor's justification. Disabled veterans with strong residual income routinely close above 41%." } },
+        { "@type": "Question", "name": "Do disabled veterans pay the VA funding fee?", "acceptedAnswer": { "@type": "Answer", "text": "No. Any veteran receiving VA disability compensation is exempt from the funding fee, with no minimum rating. The exemption also covers veterans eligible for compensation but receiving retirement or active-duty pay instead, surviving spouses receiving DIC, veterans with a pre-discharge memorandum rating, and active-duty Purple Heart recipients. For everyone else the fee is 2.15% on first use with no down payment and 3.30% on subsequent use, usually rolled into the loan." } }
+    ]
+}
+</script>
+</head>
+<body>
+
+<!-- Header (house standard) -->
+<div class="header-container">
+    <div class="brand-header">
+        <a href="https://www.thebetterveteran.com/" class="home-btn" target="_blank" rel="noopener noreferrer">Home</a>
+        <a href="/" class="home-btn home-btn--tools">All Tools</a><a href="/work-with-me/" class="home-btn home-btn--wwm">Work With Me</a>
+        <span class="brand-name"><span class="brand-the">The </span><span class="brand-better">Better </span><span class="brand-veteran">Veteran</span></span>
+    </div>
+    <h1>How Much House Can You Afford With a VA Loan?</h1>
+    <p class="tool-subtitle">Two numbers, side by side: what a lender will approve, and what you can actually live with. Built on the VA's own residual income tables and the tax-free gross-up nobody explains.</p>
+    <button type="button" id="tour-restart" class="no-print">Take the 60-second tour</button>
+</div>
+
+<main>
+
+<!-- GEO citable intro -->
+<section id="about-this-tool">
+    <p>A VA loan approval is not a budget. Lenders qualify veterans on two tests from the VA Lender's Handbook: total monthly debts at or under 41% of qualifying income, and a minimum residual income left over after taxes, debts, the full housing payment, and a maintenance estimate of 14 cents per square foot. Because VA disability compensation is tax-free, most lenders gross it up by 15% to 25% for the debt-ratio test, which is why a rated veteran can be approved for far more house than the same salary alone would support. Residual income, by contrast, is always real cash and never grossed up. The result is that many veterans, especially those fresh out of service, are approved for a payment that technically clears both tests and quietly consumes their life. This calculator solves both ceilings from your actual income stack, names which rule is setting your limit, and puts a comfortable number next to the approved one so the gap is visible before you fall in love with a listing.</p>
+</section>
+
+<!-- Mode pills -->
+<div id="mode-pills" class="no-print">
+    <p class="mp-label">What brings you here?</p>
+    <div class="mp-row">
+        <button type="button" class="mode-pill active" data-mode="shop">I'm shopping for a home</button>
+        <button type="button" class="mode-pill" data-mode="preapproved">I got pre-approved and it feels too high</button>
+        <button type="button" class="mode-pill" data-mode="serving">I'm still in / separating soon</button>
+        <button type="button" class="mode-pill" data-mode="ready">Am I even ready to buy?</button>
+    </div>
+    <p id="mode-briefing" class="mode-briefing"></p>
+</div>
+
+<!-- Inputs -->
+<form id="calc-form" class="section-container" novalidate>
+    <div class="start-here-badge no-print">Start here — a few quick facts, we run the lender math</div>
+    <p class="req-legend">Only two things gate your results: <strong>one income source</strong> (a salary <em>or</em> a VA rating <em>or</em> other income) and <strong>your state</strong>, which is pre-filled. Fields marked <span class="req-tag">required</span> are those; everything else is optional. Optional doesn't mean filler, though: your debts, home size, and the readiness questions each move the number, so the more you fill in, the closer the answer is to the one a lender would give you. Best guesses are fine.</p>
+
+    <div class="form-grid" id="input-section">
+        <div class="input-card" id="card-income">
+            <h3>Your income</h3>
+            <div class="fg-field">
+                <label for="salary">Your annual salary / wages (gross) <span class="req-tag">required</span><span class="optional-tag">(or a VA rating below)</span></label>
+                <div class="with-prefix"><input type="number" id="salary" min="0" step="1000" placeholder="75000" inputmode="numeric"></div>
+                <p class="field-hint">Taxable income. Enter 0 if you're between jobs. Still serving? Use base pay here and add BAH below.</p>
+            </div>
+            <div class="fg-two">
+                <div class="fg-field">
+                    <label for="rating">VA disability rating <span class="req-tag">required</span><span class="optional-tag">(if no salary)</span></label>
+                    <select id="rating">
+                        <option value="0">None / haven't filed</option>
+                        <option value="10">10%</option>
+                        <option value="20">20%</option>
+                        <option value="30">30%</option>
+                        <option value="40">40%</option>
+                        <option value="50">50%</option>
+                        <option value="60">60%</option>
+                        <option value="70">70%</option>
+                        <option value="80">80%</option>
+                        <option value="90">90%</option>
+                        <option value="100">100%</option>
+                        <option value="tdiu">TDIU (paid at 100%)</option>
+                    </select>
+                </div>
+                <div class="fg-field">
+                    <label for="pt">Permanent &amp; Total? <span class="optional-tag">(optional)</span></label>
+                    <select id="pt">
+                        <option value="no">No / not sure</option>
+                        <option value="yes">Yes, P&amp;T</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fg-two">
+                <div class="fg-field">
+                    <label for="married">Marital status</label>
+                    <select id="married">
+                        <option value="no">Not married</option>
+                        <option value="yes">Married</option>
+                    </select>
+                </div>
+                <div class="fg-field">
+                    <label for="children">Dependent children</label>
+                    <select id="children">
+                        <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                        <option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6+</option>
+                    </select>
+                </div>
+            </div>
+            <div id="va-comp-line" class="va-comp-line" hidden></div>
+            <div class="fg-field" id="field-spouse" hidden>
+                <label for="spouse-income">Spouse's annual income (gross) <span class="optional-tag">(optional)</span></label>
+                <div class="with-prefix"><input type="number" id="spouse-income" min="0" step="1000" placeholder="0" inputmode="numeric"></div>
+            </div>
+            <div class="fg-field" id="field-bah" hidden>
+                <label for="bah">BAH (monthly, tax-free) <span class="optional-tag">(optional)</span></label>
+                <div class="with-prefix"><input type="number" id="bah" min="0" step="10" placeholder="0" inputmode="numeric"></div>
+                <p class="field-hint"><strong>Heads up:</strong> BAH stops at separation. Lenders won't count it if you're leaving service before closing. Toggle it off to see your post-service number.</p>
+            </div>
+            <div class="fg-field">
+                <label for="state">State you're buying in <span class="req-tag">required</span><span class="optional-tag">(pre-filled)</span></label>
+                <select id="state"></select>
+                <p class="field-hint" id="state-hint">Sets your VA residual-income region, state income tax, and your veteran property tax exemption.</p>
+            </div>
+        </div>
+
+        <div class="input-card" id="card-home">
+            <h3>Your debts &amp; the home</h3>
+            <div class="fg-field">
+                <label for="debts">Monthly debt payments (car, student loans, cards, child support) <span class="optional-tag">(optional, 0 if none)</span></label>
+                <div class="with-prefix"><input type="number" id="debts" min="0" step="10" placeholder="0" inputmode="numeric"></div>
+                <p class="field-hint">Minimum payments only. Don't include rent, utilities, or insurance.</p>
+            </div>
+            <div class="fg-field" id="field-preapproved" hidden>
+                <label for="preapproved">The amount you were pre-approved for <span class="req-tag">required</span></label>
+                <div class="with-prefix"><input type="number" id="preapproved" min="0" step="5000" placeholder="700000" inputmode="numeric"></div>
+                <p class="field-hint">We'll show you what that payment does to your month, next to the number that doesn't.</p>
+            </div>
+            <div class="fg-two">
+                <div class="fg-field">
+                    <label for="down">Down payment <span class="optional-tag">(optional)</span></label>
+                    <div class="with-prefix"><input type="number" id="down" min="0" step="1000" placeholder="0" inputmode="numeric"></div>
+                    <p class="field-hint">VA allows $0 down. Leave it at 0 to see the true no-money-down number.</p>
+                </div>
+                <div class="fg-field">
+                    <label for="sqft">Home size (sq ft) <span class="optional-tag">(pre-filled)</span></label>
+                    <input type="number" id="sqft" min="300" step="50" value="1800" inputmode="numeric">
+                    <p class="field-hint">The VA deducts 14¢/sq ft for upkeep in the residual test. Bigger house, tougher test.</p>
+                </div>
+            </div>
+            <div class="fg-two">
+                <div class="fg-field">
+                    <label for="entitlement">VA loan history</label>
+                    <select id="entitlement">
+                        <option value="full">First VA loan / full entitlement</option>
+                        <option value="subsequent">Used before, fully restored</option>
+                        <option value="partial">I still have an active VA loan</option>
+                    </select>
+                </div>
+                <div class="fg-field" id="field-county" hidden>
+                    <label for="county">County</label>
+                    <select id="county"></select>
+                    <p class="field-hint">With an active VA loan, your county's limit caps the $0-down amount. <a href="/second-va-loan/" target="_blank" rel="noopener">Exact entitlement math →</a></p>
+                </div>
+            </div>
+            <div class="fg-field">
+                <label for="hoa">HOA dues (monthly, if any) <span class="optional-tag">(optional)</span></label>
+                <div class="with-prefix"><input type="number" id="hoa" min="0" step="5" placeholder="0" inputmode="numeric"></div>
+            </div>
+        </div>
+    </div>
+
+    <details class="form-drawer" id="assumptions-drawer">
+        <summary>Adjust assumptions <span class="drawer-hint">all optional — rate, gross-up, comfort %, other income, child care</span></summary>
+        <div class="drawer-body">
+            <div class="form-grid">
+                <div class="input-card" id="card-loan">
+                    <h3>Loan assumptions</h3>
+                    <div class="fg-two">
+                        <div class="fg-field">
+                            <label for="rate">Interest rate (%)</label>
+                            <input type="number" id="rate" min="0" max="20" step="0.125" value="6.375" inputmode="decimal">
+                        </div>
+                        <div class="fg-field">
+                            <label for="term">Term (years)</label>
+                            <select id="term"><option value="30">30</option><option value="15">15</option></select>
+                        </div>
+                    </div>
+                    <div class="fg-two">
+                        <div class="fg-field">
+                            <label for="dti-cap">DTI guideline (%)</label>
+                            <input type="number" id="dti-cap" min="20" max="60" step="1" value="41" inputmode="numeric">
+                            <p class="field-hint">VA's 41% guideline. Many lenders go higher with strong residual income.</p>
+                        </div>
+                        <div class="fg-field">
+                            <label for="comfort-pct">"Comfortable" = housing ≤ this % of gross income</label>
+                            <input type="number" id="comfort-pct" min="10" max="50" step="1" value="28" inputmode="numeric">
+                            <p class="field-hint">28% is the classic front-end guideline. This is a budgeting convention, not a rule.</p>
+                        </div>
+                    </div>
+                    <div class="fg-two">
+                        <div class="fg-field">
+                            <label for="grossup">Tax-free income gross-up (%)</label>
+                            <input type="number" id="grossup" min="0" max="25" step="5" value="25" inputmode="numeric">
+                            <p class="field-hint">Lender convention, not a VA rule. Most use 25%; some use 15%. Set to 0 to see the no-gross-up number.</p>
+                        </div>
+                        <div class="fg-field">
+                            <label for="insurance">Homeowners insurance (% of value / yr)</label>
+                            <input type="number" id="insurance" min="0" max="3" step="0.05" value="0.65" inputmode="decimal">
+                        </div>
+                    </div>
+                    <div class="fg-field">
+                        <label for="fee-exempt">Funding fee</label>
+                        <select id="fee-exempt">
+                            <option value="auto">Auto (waived at any rating)</option>
+                            <option value="exempt">Exempt for another reason (DIC spouse, memorandum rating, Purple Heart on AD, comp offset by retired pay)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-card" id="card-other">
+                    <h3>Other income &amp; costs</h3>
+                    <div class="fg-field">
+                        <label for="pension">Military retirement / pension (annual, taxable)</label>
+                        <div class="with-prefix"><input type="number" id="pension" min="0" step="1000" placeholder="0" inputmode="numeric"></div>
+                    </div>
+                    <div class="fg-field">
+                        <label for="other-taxable">Other taxable income (annual)</label>
+                        <div class="with-prefix"><input type="number" id="other-taxable" min="0" step="1000" placeholder="0" inputmode="numeric"></div>
+                    </div>
+                    <div class="fg-field">
+                        <label for="other-nontax">Other tax-free income (monthly)</label>
+                        <div class="with-prefix"><input type="number" id="other-nontax" min="0" step="10" placeholder="0" inputmode="numeric"></div>
+                        <p class="field-hint">Non-taxable Social Security portion, documented child support, CRSC.</p>
+                    </div>
+                    <div class="fg-field">
+                        <label for="childcare">Child care (monthly)</label>
+                        <div class="with-prefix"><input type="number" id="childcare" min="0" step="10" placeholder="0" inputmode="numeric"></div>
+                        <p class="field-hint">Counted against your residual income here. Lenders vary on this; we're conservative.</p>
+                    </div>
+                    <div class="fg-field">
+                        <label for="va-override">Override VA monthly comp</label>
+                        <div class="with-prefix"><input type="number" id="va-override" min="0" step="1" placeholder="auto from rating" inputmode="numeric"></div>
+                        <p class="field-hint">If you receive SMC or a different amount than the rating table, enter your actual monthly deposit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </details>
+
+    <details class="form-drawer" id="readiness-drawer">
+        <summary>Am I ready to buy? <span class="drawer-hint">7 quick questions + your net worth — optional, 60 seconds, and it tightens your comfortable number</span></summary>
+        <div class="drawer-body">
+            <p class="field-hint" style="margin-bottom:12px;">Qualifying is easy. Most veterans can. Readiness is the real question, and the reasons to wait are usually life-stage, not financial. Answer honestly: these answers tighten your <strong>comfortable</strong> number (never the lender's), and your net worth caps it so one bad year can't erase you.</p>
+            <div id="readiness-questions"></div>
+            <div class="fg-field" style="margin-top:12px;">
+                <label for="networth">Household net worth (savings + investments + retirement − all debts)</label>
+                <div class="with-prefix"><input type="number" id="networth" step="1000" placeholder="e.g. 60000" inputmode="numeric"></div>
+                <p class="field-hint">Same income, different net worth is a completely different risk. Rough number is fine.</p>
+            </div>
+        </div>
+    </details>
+
+    <!-- Live strip -->
+    <div id="live-strip" class="no-print" aria-live="polite"></div>
+
+    <button type="submit" id="compare-btn" class="compare-btn no-print">Show Me My Two Numbers →</button>
+    <p id="form-error" class="form-error no-print"></p>
+</form>
+
+<!-- Hero verdict -->
+<div class="verdict-card" id="hero-verdict" style="display:none;"></div>
+
+<!-- Result-moment email capture -->
+<div id="hero-capture" class="no-print" style="display:none;">
+    <p class="hc-line">Those are your numbers. <strong>Email yourself this exact breakdown</strong> — both ceilings, the rule that's setting your limit, and one link that rebuilds it.</p>
+    <form id="hero-capture-form" class="hc-form">
+        <input type="email" id="hero-email-input" placeholder="your@email.com" aria-label="Email address" required>
+        <button type="submit" id="hero-email-btn" class="action-btn">Send My Numbers</button>
+    </form>
+    <p id="hero-email-status" class="email-status"></p>
+    <p class="hc-hint">You'll also get the free weekly veteran-benefits newsletter. Unsubscribe anytime. <a href="/privacy/">Privacy Policy</a>.</p>
+</div>
+
+<!-- Results -->
+<div id="results-container" class="section-container" style="display:none;">
+    <div class="results-header">
+        <div class="results-title-row">
+            <h2>The full math</h2>
+            <button type="button" id="retake-btn" class="retake-btn no-print">Start Over</button>
+        </div>
+    </div>
+
+    <div id="ceilings-panel"></div>
+    <div id="breakdown-panel"></div>
+    <div id="grossup-panel" class="callout callout-gold"></div>
+    <div id="readiness-panel" style="display:none;"></div>
+    <div id="next-panel" class="callout callout-red"></div>
+
+    <!-- Bottom email capture -->
+    <div id="email-results-container" class="no-print">
+        <h3>Email me this breakdown</h3>
+        <form id="email-results-form">
+            <input type="email" id="email-input" placeholder="your@email.com" aria-label="Email address" required>
+            <button type="submit" id="email-submit-btn" class="action-btn">Send My Numbers</button>
+        </form>
+        <p id="email-status" class="email-status"></p>
+    </div>
+
+    <div id="action-bar" class="no-print" style="display:none;">
+        <button type="button" id="print-btn" class="action-btn secondary">Print</button>
+        <button type="button" id="share-btn" class="action-btn secondary">Copy Link</button>
+    </div>
+</div>
+
+<!-- GEO: How this works -->
+<section id="how-it-works" class="section-container">
+    <h2>How this tool works</h2>
+    <p><strong>Two ceilings, solved separately.</strong> The lender's ceiling is the lowest price that passes every underwriting test: total debts at or under the DTI guideline on qualifying income, the VA residual income requirement, and, if you have an active VA loan, your county's loan limit. The comfortable ceiling uses the classic 28/36 rule: the full housing payment at or under your chosen share of actual gross income (28% by default), and housing plus all debts and child care at or under that share plus 8 points (36%). In still-serving mode BAH is excluded from the comfortable basis, since the lender counts it today and it ends at separation. If you answer the readiness questions, they tighten that share (yellow minus 3 points, red minus 6, thin reserves after close up to 3 more, floor 15%), and your net worth caps the comfortable price so a 10% dip in home value erases no more than 35% of it. Readiness never changes the lender's ceiling. Because taxes and insurance rise with price, each ceiling is found by search rather than a single formula.</p>
+    <p><strong>The gross-up, done the way lenders do it.</strong> Tax-free income (VA disability compensation, BAH, other non-taxable sources) is multiplied by your gross-up percentage for the DTI test only. Residual income is computed on real cash: taxable income minus federal tax (2026 brackets, IRS Rev. Proc. 2025-32), state income tax (Tax Foundation 2026), and FICA, plus tax-free income at face value, minus debts, the full housing payment, child care if entered, and a maintenance estimate of 14 cents per square foot of living area. The required residual comes from the VA Lender's Handbook table for your region, family size, and loan bracket.</p>
+    <p><strong>What we model.</strong> The funding fee (2.15% first use, 3.30% subsequent, waived for any veteran receiving compensation), your state's average property tax rate and veteran exemption at your rating (verified August 2026), homeowners insurance at a national-average rate, HOA dues, and the two Handbook exceptions that let a loan close above 41% DTI. <strong>What we don't.</strong> Lender overlays, credit score pricing, county-level tax variation, closing costs beyond the funding fee, and PMI (VA loans have none). Rates and the gross-up percentage are editable assumptions, labeled as such. This is an educational estimate, not a pre-qualification or financial advice. Data stamp: August 25, 2026.</p>
+</section>
+
+<!-- Visible FAQ (house standard) -->
+<section id="faq" class="section-container faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div id="faq-items"></div>
+</section>
+
+<!-- More tools (house standard) -->
+<div class="more-tools">
+    <h3>More Free Veteran Tools</h3>
+    <div class="tools-links">
+        <a href="/">The Better Veteran Toolbox →</a>
+        <a href="/benefits-quiz/">Benefits Finder Quiz</a>
+        <a href="/va-loan/">VA Loan Calculator</a>
+        <a href="/second-va-loan/">Second VA Loan Calculator</a>
+        <a href="/va-combined/">VA Combined Rating Calculator</a>
+        <a href="/secondary-conditions/">VA Secondary Conditions Tool</a>
+        <a href="/cp-exam-prep/">C&amp;P Exam Prep</a>
+        <a href="/100-pt/">P&amp;T Lifetime Value Calculator</a>
+        <a href="/champva/">CHAMPVA Eligibility Tool</a>
+        <a href="/va-healthcare/">VA Healthcare Navigator</a>
+        <a href="/dependents-education/">Education Benefits for Dependents</a>
+        <a href="/gi-bill-vre/">GI Bill vs. VR&amp;E Calculator</a>
+        <a href="/military-retirement/">Military Retirement Calculator</a>
+        <a href="/federal-retirement/">Federal Retirement &amp; TSP Calculator</a>
+        <a href="/salary/">Salary Translator</a>
+        <a href="/career-pathway/">Career Pathway Translator</a>
+        <a href="/state-benefits/">Best State for Veterans</a>
+        <a href="/veteran-freedom-index/">Veteran Freedom Index</a>
+        <a href="/mba/">MBA Comparison Tool</a>
+        <a href="/stay-or-separate/">Stay or Separate Calculator</a>
+        <a href="/tsp/">What To Do With Your TSP</a>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Underwriting rules per VA Pamphlet 26-7 (Lender's Handbook) Chapter 4, Topics 2, 9 and 10: residual income table by region, family size, and loan amount; 14¢/sq ft maintenance and utilities; the 41% DTI guideline and its exceptions. Funding fee per 38 U.S.C. 3729 (rates effective April 7, 2023). 2026 VA compensation rates effective December 1, 2025. Federal tax parameters from IRS Rev. Proc. 2025-32; state income tax from the Tax Foundation 2026 survey; state property tax exemptions verified August 2026. The gross-up percentage is a lender convention, not a VA rule. Data stamp: August 25, 2026.
+        All figures are educational estimates, not a pre-qualification, loan commitment, or financial advice. Your lender's underwriting controls.
+    </p>
+    <p class="footer-sources"><a href="/privacy/">Privacy Policy</a></p>
+</footer>
+
+</main>
+
+<!-- Tour -->
+<div id="tour-root" class="no-print" hidden>
+    <div id="tour-backdrop"></div>
+    <div id="tour-spotlight"></div>
+    <div id="tour-tooltip" role="dialog" aria-modal="true" aria-live="polite" aria-labelledby="tour-title">
+        <p id="tour-step-label"></p>
+        <h3 id="tour-title"></h3>
+        <p id="tour-text"></p>
+        <div id="tour-controls">
+            <button type="button" id="tour-exit">Exit tour</button>
+            <div id="tour-nav">
+                <button type="button" id="tour-back">Back</button>
+                <button type="button" id="tour-next">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
