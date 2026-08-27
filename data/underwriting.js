@@ -2,13 +2,15 @@
  * Underwriting conventions and defaults for the VA Affordability engine.
  * Sources and dates: va-affordability-sources-2026-08.md §5–§7.
  *
- * Everything in ASSUMPTIONS is a labeled, user-adjustable convention, not a
- * VA rule. The VA sets no gross-up percentage (Ch.4 Topic 2 states none);
- * 15–25% is lender practice, 25% most common.
+ * ASSUMPTIONS are labeled, user-adjustable. The gross-up IS a VA rule: Ch.4
+ * Topic 9 (Form 26-6393 instructions) — "Use a figure of 125 percent of the
+ * borrower's non-taxable income when 'grossing up'" and "Tax-free income may be
+ * 'grossed up' for purposes of calculating the debt-to-income ratio only."
+ * Some lenders apply a smaller factor under their own overlays; the dial is for them.
  */
 
 export const ASSUMPTIONS = {
-    grossUpPct: 0.25,          // lender convention, range 0.15–0.25
+    grossUpPct: 0.25,          // VA Handbook Ch.4 Topic 9: 125% for DTI only; lender overlays may use less
     grossUpRange: [0.15, 0.25],
     dtiCap: 0.41,              // handbook guideline (Ch.4 Topic 10)
     comfortPct: 0.28,          // "comfortable" = housing payment ≤ 28% of actual gross income (front-end convention)
