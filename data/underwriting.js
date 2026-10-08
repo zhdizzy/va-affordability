@@ -15,7 +15,7 @@ export const ASSUMPTIONS = {
     dtiCap: 0.41,              // handbook guideline (Ch.4 Topic 10)
     comfortPct: 0.28,          // "comfortable" = housing payment ≤ 28% of actual gross income (front-end convention)
     insuranceRatePerYear: 0.0065, // 2026 national avg, refresh each Q1 (va-loan)
-    vaRate: 6.375,             // adjustable; refresh quarterly (va-loan defaults)
+    vaRate: 6.875,             // adjustable; refresh quarterly (va-loan defaults)
     termYears: 30,
     priceSearchCeiling: 5000000
 };

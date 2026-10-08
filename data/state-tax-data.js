@@ -3,8 +3,9 @@
 /**
  * State Property Tax Data for All 50 States + DC
  *
- * Primary Source: Veterans United Home Loans (2025/2026)
- *   https://www.veteransunited.com/futurehomeowners/veteran-property-tax-exemptions-by-state/
+ * Effective tax rates: Census ACS 2024 1-year aggregate ratio (B25090 / B25082) for all 50 states + DC.
+ * Exemption rules: verified against state statutes and DOR pages (August 2026; re-audited October 7, 2026).
+ * Earlier builds cited Veterans United's summary page; it is no longer the source of any figure here.
  *
  * Each entry contains:
  *   - name: Full state name
@@ -56,6 +57,7 @@ export const stateTaxData = {
     assessmentRatio: 0.1,
     veteranExemption: {
       tiers: [
+        { minRating: 100, requiresPT: false, type: "full", description: "Primary residence fully exempt from property tax at a 100% service-connected rating, with no income or value test (A.R.S. 42-11111(C): HB 2792, Laws 2026 ch. 2, effective February 12, 2026 for tax years beginning after December 31, 2025, refined by HB 2120, Laws 2026 ch. 82; TDIU qualifies; the surviving spouse keeps it until remarriage)" },
         { minRating: 10, requiresPT: false, type: "fixed_amount", basis: "assessed", value: 4873, prorated: true, description: "Up to $4,873 of assessed value exempt (2026), prorated by VA disability rating. Household income must be under $39,865 ($47,826 with minor children or dependents; VA disability income is excluded from the test) and total assessed value of all property under $36,865. A.R.S. 42-11111, opened to all rating levels by Prop 130 (2022). Amounts index annually." }
       ],
       defaultDescription: "No veteran exemption below 10%"
@@ -104,7 +106,7 @@ export const stateTaxData = {
     assessmentRatio: 0.7,
     veteranExemption: {
       tiers: [
-        { minRating: 100, requiresPT: true, type: "full", description: "Full exemption (service-connected P&T, FY2026)" }
+        { minRating: 100, requiresPT: true, type: "full", description: "Full exemption on the dwelling you occupy at a 100% service-connected P&T rating (CGS 12-81(83), PA 24-46). PA 25-168 excludes rental or commercial portions and makes a TDIU-based exemption and up to 2 acres of lot municipal options, so ask your assessor" }
       ],
       defaultDescription: "Some towns offer small exemptions for qualifying veterans"
     }
@@ -156,7 +158,7 @@ export const stateTaxData = {
     sources: [
       { label: "Kauai County", url: "https://www.kauai.gov/Government/Departments-Agencies/Department-of-Finance/Real-Property-Assessment-Division/Exemptions" },
       { label: "Maui County", url: "https://www.mauicounty.gov/1888/Real-Property-Tax-Exemptions" },
-      { label: "Honolulu County", url: "https://www.honolulu.gov/budget/realproperty.html" },
+      { label: "Honolulu County", url: "https://realproperty.honolulu.gov/" },
       { label: "Hawaii County", url: "https://www.hawaiipropertytax.com/" }
     ],
     veteranExemption: {
@@ -187,7 +189,7 @@ export const stateTaxData = {
     assessmentRatio: 0.3333,  // 33 1/3% statutory; Cook assesses at 10% then equalizes to the same level
     veteranExemption: {
       tiers: [
-        { minRating: 70, requiresPT: false, type: "full", description: "Full exemption (property EAV under $250,000)" },
+        { minRating: 70, requiresPT: false, type: "fixed_amount", basis: "assessed", value: 250000, description: "First $250,000 of equalized assessed value exempt (35 ILCS 200/15-169(b-3.1)(3)); at the 33.33% assessment level that covers roughly $750,000 of market value" },
         { minRating: 50, requiresPT: false, type: "fixed_amount", basis: "assessed", value: 5000, description: "$5,000 off EAV" },
         { minRating: 30, requiresPT: false, type: "fixed_amount", basis: "assessed", value: 2500, description: "$2,500 off EAV" }
       ],
@@ -201,13 +203,13 @@ export const stateTaxData = {
     assessmentRatio: 1,
     flagNote: "OVERHAULED by HEA 1210-2026 (signed 3/12/2026, retroactive to 1/1/2026, applies 2026 pay 2027). The old deduction tiers ($24,960 / $14,000 / $38,960 combined, home under $240K) are gone. IC 6-1.1-12-14 now exempts 100% of assessed value for totally disabled veterans with the $240,000 cap REMOVED; IC 6-1.1-12-13's $24,960 deduction is repealed and replaced by a flat $350 credit. Note the 2025 whiplash before this: SEA 1-2025 eliminated the deductions, HEA 1427-2025 reinstated them retroactively, and then HEA 1210-2026 replaced them.",
     sources: [
-      { label: "IN DVA Property Tax Deduction", url: "https://www.in.gov/dva/benefits-and-services/financial-assistance/disabled-veteran-property-tax-deduction/" },
+      { label: "IN DVA Property Tax Deduction", url: "https://www.in.gov/dva/divisions/training-and-services/disabled-veteran-property-tax-deduction/" },
       { label: "DLGF memo on 2026 legislation", url: "https://www.in.gov/dlgf/files/2026-memos/260527-Cockerill-Memo-Legislation-Affecting-Deductions,-Credits,-and-Exemptions.pdf" }
     ],
     veteranExemption: {
       tiers: [
         { minRating: 100, requiresPT: false, type: "full", description: "Full exemption: IC 6-1.1-12-14 now deducts 100% of assessed value for totally disabled veterans, and the old $240,000 home-value cap was removed (HEA 1210-2026, effective for the 2026 assessment date). Requires one year of Indiana residency and use as your principal residence. You cannot combine this with the flat credits below" },
-        { minRating: 10, requiresPT: false, type: "fixed_tax_credit", value: 350, description: "$350 flat property tax credit for a service-connected disability (IC 6-1.1-51.3-6), replacing the repealed $24,960 deduction. Veterans 62+ with a 10%+ rating get a separate $250 credit (IC 6-1.1-51.3-5); the two credits stack to $600, but neither can be combined with the full exemption above" }
+        { minRating: 10, requiresPT: false, type: "fixed_tax_credit", value: 350, description: "$350 flat property tax credit for a wartime veteran with a 10%+ service-connected disability and an honorable discharge (IC 6-1.1-51.3-6), replacing the repealed $24,960 deduction. Veterans 62+ with a 10%+ rating get a separate $250 credit (IC 6-1.1-51.3-5); the two credits stack to $600, but neither can be combined with the full exemption above" }
       ],
       defaultDescription: "No veteran benefit without a service-connected disability rating"
     }
@@ -452,8 +454,8 @@ export const stateTaxData = {
     flagged: true,
     flagNote: "S1183 (signed Dec 2025, effective Jan 2, 2026) allows municipalities to grant full exemption to 100% disabled veterans — but it's opt-in by locality. Below 100%, the Alternative Veterans' Exemption (RPTL §458-a) provides: 15% off assessed value for wartime service (cap $12K), +10% for combat zone (cap $8K), +half of disability rating off assessed value (cap $40K base, up to $250K in high-appreciation areas). All caps vary by municipality. Must apply by March 1.",
     sources: [
-      { label: "NY Veterans Property Tax Exemptions", url: "https://veterans.ny.gov/content/property-tax-exemptions" },
-      { label: "NY Tax Dept Alt Veterans' Exemption", url: "https://www.tax.ny.gov/research/property/assess/manuals/vol4/pt2/sec4_01/sec4_01-12.htm" }
+      { label: "NY Tax Dept Veterans' Exemptions (incl. RPTL 458-a(11))", url: "https://www.tax.ny.gov/pit/property/exemption/vetexempt.htm" },
+      { label: "NY Tax Dept Alt Veterans' Exemption", url: "https://www.tax.ny.gov/pit/property/exemption/altvetexempt.htm" }
     ],
     veteranExemption: {
       tiers: [
@@ -651,7 +653,7 @@ export const stateTaxData = {
     flagNote: "Income-based program (not a flat exemption). Currently 80%+ disability required; HB 1106 (signed May 2025) lowers to 40%+ for taxes due 2027. Relief = frozen assessed value + exemption from excess/regular levies depending on income tier. Tiers and income limits vary by county. VA disability comp excluded from income calculation. SB5398 (tiered flat exemptions + full at 100%) still in committee — not law.",
     sources: [
       { label: "WA DVA Property Tax Relief", url: "https://www.dva.wa.gov/veterans-their-families/veterans-benefits/housing-resources/property-tax-relief" },
-      { label: "WA DOR Property Tax Exemption", url: "https://dor.wa.gov/education/industry-guides/property-tax-exemptions" }
+      { label: "WA DOR Property Tax Exemption", url: "https://dor.wa.gov/taxes-rates/property-tax/property-tax-exemptions-and-deferrals" }
     ],
     veteranExemption: {
       tiers: [
