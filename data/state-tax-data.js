@@ -459,7 +459,7 @@ export const stateTaxData = {
     ],
     veteranExemption: {
       tiers: [
-        { minRating: 100, requiresPT: true, type: "full", description: "Primary residence fully exempt from taxation, special district charges and special ad valorem levies for veterans VA-rated permanently and totally disabled from military service. Added as a local option by L.2025 ch.672 and made MANDATORY statewide by L.2026 ch.77, first applying to assessment rolls with taxable status dates on or after 10/1/2026 — for most towns that is the 2027 roll. Whether TDIU-based P&T qualifies is not yet resolved in state guidance (RPTL 458-a(11))" },
+        { minRating: 100, requiresPT: true, type: "full", description: "Primary residence fully exempt from taxation, special district charges and special ad valorem levies for veterans VA-rated permanently and totally disabled from military service. Added as a local option by L.2025 ch.672, made mandatory by L.2026 ch.77, then returned to a LOCAL OPTION by the 2026-27 budget (L.2026 ch.59 Part EE); modeled as if your town adopted it. First applies to assessment rolls with taxable status dates on or after 10/1/2026 — for most towns that is the 2027 roll. Whether TDIU-based P&T qualifies is not yet resolved in state guidance (RPTL 458-a(11))" },
         { minRating: 10, requiresPT: false, type: "fixed_amount", basis: "assessed", value: 40000, prorated: true, description: "Alternative Veterans Exemption, disability portion: assessed value reduced by half your VA disability rating, basic maximum $40,000. Localities may set maximums from $20,000 to $250,000, so check yours (RPTL 458-a)" }
       ],
       defaultDescription: "Alternative Veterans Exemption may still apply for wartime or combat service"
@@ -496,7 +496,7 @@ export const stateTaxData = {
     assessmentRatio: 0.35,
     veteranExemption: {
       tiers: [
-        { minRating: 100, requiresPT: false, type: "fixed_amount", basis: "market", value: 58000, description: "Enhanced homestead exemption: $58,000 of market value exempt (tax year 2025, payable 2026; indexed annually). Requires a VA total disability rating OR total disability based on individual unemployability. No income test and no age test (R.C. 323.151(F))" }
+        { minRating: 100, requiresPT: false, type: "fixed_amount", basis: "market", value: 59400, description: "Enhanced homestead exemption: $59,400 of market value exempt (tax year 2026, payable 2027; $58,000 was tax year 2025; indexed annually, certified each December 1). Requires a VA total disability rating OR total disability based on individual unemployability. No income test and no age test (R.C. 323.151(F))" }
       ],
       defaultDescription: "Standard homestead exemption may apply at 65+ or with disability"
     }

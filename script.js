@@ -327,7 +327,7 @@ function renderResults(r) {
     ${line('All obligations ÷ real gross income', pct(a.backRatio), pct(c.backRatio))}
     ${line('Residual income left / required', resLine(a), resLine(c))}
     </tbody></table>
-    ${a.propTaxNoExemption > a.propTax + 1 ? `<p class="table-note">Your ${stateTaxData[inp.stateCode]?.name || ''} veteran exemption is saving you about ${fmtUSD((a.propTaxNoExemption - a.propTax) * 12)}/yr at the approved price. <a href="/va-loan/" target="_blank" rel="noopener">Full property tax and loan-type comparison →</a></p>` : ''}
+    ${a.propTaxNoExemption > a.propTax + 1 ? `<p class="table-note">Your ${stateTaxData[inp.stateCode]?.name || ''} veteran exemption is saving you about ${fmtUSD((a.propTaxNoExemption - a.propTax) * 12)}/yr at the approved price. It is not automatic: <a href="/property-tax/?st=${encodeURIComponent(inp.stateCode || '')}&source=va-affordability" target="_blank" rel="noopener">how to file for it →</a> <a href="/va-loan/" target="_blank" rel="noopener">Full property tax and loan-type comparison →</a></p>` : ''}
     <p class="table-note">The 41% line is a guideline. The handbook allows closing above it when residual income beats the requirement by 20%+, or when the ratio is high solely because of tax-free income (supervisor sign-off). Chips above show which applies.</p>`;
 
   // Gross-up ladder: re-solve at every rating rung
